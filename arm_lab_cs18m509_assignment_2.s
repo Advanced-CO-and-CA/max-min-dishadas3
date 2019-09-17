@@ -34,11 +34,11 @@ _main:
 check:
 	LDR R4, [R0], #4                 @ scans through data_items only once
 	CMP R4, #0
-	BEQ complete
+	BEQ complete                     @ on encountering 0 in array end program
 	ADD R3, #1
-	CMP R4, R2
+	CMP R4, R2                       @ compare current integer with current max
 	BGT update_max
-	CMP R4, R1
+	CMP R4, R1                       @ compare current integer with current min
 	BLT update_min
 	B check
     
